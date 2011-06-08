@@ -1,0 +1,266 @@
+\documentclass[11pt,oneside]{article}
+\usepackage{geometry}
+\usepackage[T1]{fontenc}
+
+\pagestyle{empty}
+\geometry{letterpaper,tmargin=1in,bmargin=.8in,lmargin=1in,rmargin=1in,headheight=0in,headsep=0in,footskip=.3in}
+
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0in}
+\setlength{\itemsep}{0in}
+\setlength{\topsep}{0in}
+\setlength{\tabcolsep}{0in}
+
+% Name and contact information
+\newcommand{\name}{Eric Polino}
+\newcommand{\addr}{814 Brynewood Park Lane, Chattanooga, TN 37415}
+\newcommand{\phone}{(321) 446-3660}
+\newcommand{\email}{mightybyte@gmail.com}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% New commands and environments
+
+% This defines how the name looks
+\newcommand{\bigname}[1]{
+	\begin{center}\fontfamily{phv}\selectfont\Huge\scshape#1\end{center}
+}
+
+% A ressection is a main section (<H1>Section</H1>)
+\newenvironment{ressection}[1]{
+	\vspace{4pt}
+	{\fontfamily{phv}\selectfont\Large#1}
+	\begin{itemize}
+	\vspace{3pt}
+}{
+	\end{itemize}
+}
+
+% A resitem is a simple list element in a ressection (first level)
+\newcommand{\resitem}[1]{
+	\vspace{-4pt}
+	\item \begin{flushleft} #1 \end{flushleft}
+}
+
+% A ressubitem is a simple list element in anything but a ressection (second level)
+\newcommand{\ressubitem}[1]{
+	\vspace{-1pt}
+	\item \begin{flushleft} #1 \end{flushleft}
+}
+
+% A resbigitem is a complex list element for stuff like jobs and education:
+%  Arg 1: Name of company or university
+%  Arg 2: Location
+%  Arg 3: Title and/or date range
+\newcommand{\resbigitem}[3]{
+	\vspace{-5pt}
+	\item
+	{\textbf{#1}---#2 \hfill \textit{#3}}
+}
+
+% This is a list that comes with a resbigitem
+\newenvironment{restitledposition}[3]{
+	\resbigitem{#1}{#2}{#3}
+	\vspace{-2pt}
+	\begin{itemize}
+}{
+	\end{itemize}
+}
+
+% A resbigitem is a complex list element for stuff like jobs and education:
+%  Arg 1: Name of company or university
+%  Arg 2: Location
+%  Arg 3: Title and/or date range
+\newcommand{\resbigitemb}[2]{
+	\vspace{-5pt}
+	\item{\textbf{#1} \hfill \textit{#2}}
+}
+
+% This is a list that comes with a resbigitem
+\newenvironment{resdateditem}[2]{
+	\resbigitemb{#1}{#2}
+	\vspace{-2pt}
+	\begin{itemize}
+}{
+	\end{itemize}
+}
+
+% This is a simple sublist
+\newenvironment{reslist}[1]{
+	\resitem{\textbf{#1}}
+	\vspace{-5pt}
+	\begin{itemize}
+}{
+	\end{itemize}
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Now for the actual document:
+
+\begin{document}
+
+\fontfamily{ppl} \selectfont
+
+% Name with horizontal rule
+\bigname{\name}
+
+\vspace{-8pt} \rule{\textwidth}{1pt}
+
+\vspace{-1pt} {\small\itshape \hfill \phone; \email \hfill}
+
+\vspace{8 pt}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{ressection}{Employment}
+
+	\begin{restitledposition}{Karamaan Group (New York, NY)}{Quantitative
+Developer}{Feb. 2010--present}
+
+    \ressubitem{\textbf{Haskell Development:} Developed
+    financial modelling and infrastructure software to assist
+    investment activities.  Built tools to scrape/parse public websites.}
+
+	\end{restitledposition}
+
+	\begin{restitledposition}{BAE Systems (Columbia, MD)}{Senior Research Engineer}{Sept. 2008--Jan. 2010}
+
+    \ressubitem{\textbf{Network Intrusion Detection:} Developed
+    intrusion and anomaly detection algorithms in C.  Analyzed
+    algorithm behavior with large real-world traffic streams.  Wrote
+    library for manipulating bloom filters.}
+
+    \ressubitem{\textbf{Database Interfacing:} Redesigned and
+    rewrote a Java application for retrieving data from JMS and
+    storing it in a database.  Reduced code size by 77\%.}
+
+    \ressubitem{\textbf{Security Clearance:} Top Secret}
+
+	\end{restitledposition}
+
+	\begin{restitledposition}{Northrop Grumman (Melbourne, FL)}{Software Engineer}{June 2003--Aug. 2008}
+
+    \ressubitem{\textbf{Air Tracking and Data Fusion:} Implemented
+    system for large-scale, real-time air tracking and data fusion in
+    Java, based on a MATLAB prototype.  Optimized and parallelized
+    tracking software, resulting in a >1000x total speed increase.
+    Supervised several developers in development of fusion system.
+    Integrated and tested fusion software in a prototype weapons
+    system.}
+
+    \ressubitem{\textbf{Command and Control Crew Member:} Worked in
+    simulation of next generation airborne battle management command
+    and control system as an offensive duty officer, gaining
+    operational insight to aid system development.}
+
+    \ressubitem{\textbf{LIDAR to DTED Converter:} Tested/Maintained
+    software to create digital terrain elevation data (DTED) from raw
+    LIDAR (LIght Detection And Ranging) data.  Wrote LIDAR simulator
+    to facilitate testing before real LIDAR data was available.
+    Analyzed real data to determine the source of problems in the
+    hardware LIDAR system and software DTED conversion.}
+
+    \ressubitem{\textbf{DTED Filtering:} Implemented algorithms that
+    filtered non-ground data from DTED to create a "bare earth" map.
+    Wrote synthetic terrain generator for testing.}
+
+    \ressubitem{\textbf{Security Clearance:} Secret}
+
+	\end{restitledposition}
+
+\end{ressection}
+
+\begin{ressection}{Publications}
+  \ressubitem{Gregory Collins, Doug Beardsley, "The Snap Framework:
+A Web Toolkit for Haskell," IEEE Internet Computing, vol. 15, no. 1,
+pp. 84-87, Jan./Feb. 2011.}
+\end{ressection}
+
+\begin{ressection}{Personal Projects}
+
+  \begin{resdateditem}{Snap Framework (http://snapframework.com)}{2010-Present}
+    \ressubitem{Original co-author of the Snap Framework, a high performance
+web framework written in Haskell.}
+  \end{resdateditem}
+
+\pagebreak
+
+  \begin{resdateditem}{Noscrolls (http://noscrolls.com)}{2008-Present}
+    \ressubitem{Designed, developed, and deployed noscrolls.com, a
+website for logging and tracking fitness workout data.  Entire site
+developed in Haskell.}
+  \end{resdateditem}
+
+  \begin{resdateditem}{LOAPS POTM (http://dinsights.com/POTM/)}{2005}
+
+    \ressubitem{Wrote C program for the POTM programming contest that
+    played LOAPS, a variant of the game Lines of Action.  It won with
+    a perfect 74-0-0 record.}
+
+    \ressubitem{Used PN$^2$ search to create an extensive database of
+    solved openings.}
+
+    \ressubitem{Created a genetic algorithm to learn an evaluation
+    function.  This worked extremely well and was probably the biggest
+    factor in winning the contest.}
+
+  \end{resdateditem}
+
+  \begin{resdateditem}{Atomic Chess}{2004-2005}
+    \ressubitem{Wrote an atomic chess engine in Java to improve my Java skills.}
+    \ressubitem{Generated up to 5-piece atomic endgame tables.}
+    \ressubitem{It is one of the top 3 atomic chess programs on the Free Internet Chess Server.}
+  \end{resdateditem}
+
+  \begin{resdateditem}{Suicide Chess}{1999-2003}
+    \ressubitem{Wrote suicide chess program in C to play on the Free Internet Chess Server.}
+    \ressubitem{Implemented proof-number and PN$^2$ search algorithms for finding forced wins.}
+    \ressubitem{Generated 2 and 3-piece suicide chess endgame tables with optimal indexing.}
+  \end{resdateditem}
+\end{ressection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{ressection}{Computer Experience}
+
+  \resitem{Experience with C, Java, Haskell, Scala, C++, Python, C\#, Perl, PHP, MATLAB, R.}
+  \resitem{Comfortable in Windows and Unix/Linux environments.}
+  \resitem{Winner, 16th International Obfuscated C Code Contest (2001).}
+  \resitem{Scored 180 on the Computer Science Major Field Test (2001).}
+  \resitem{Wrote programs to play games such as Connect 4, Pente, and Dots-and-boxes.}
+  \resitem{Wrote a security program in C for elementary school computers (age 13).}
+  \resitem{Audited two college-level C/C++ programming classes (age 12).}
+
+\end{ressection}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{ressection}{Education}
+
+	\begin{restitledposition}{Colorado State University}{Working towards Masters of Computer Science}{}
+		\ressubitem{Completed: Parallel Programming (4 credits), Machine Learning (4 credits)}
+	\end{restitledposition}
+
+	\begin{restitledposition}{Southern Adventist University (SAU)}{B.S. Computer Science}{1998-2003}
+    \ressubitem{Two classes short of a second major in Mathematics}
+	\end{restitledposition}
+
+\end{ressection}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{ressection}{Achievements and Activities}
+
+  \resitem{Who's Who Among Students in American Universities \& Colleges}
+	\resitem{Outstanding Computer Science Senior Award - SAU School of Computing}
+  \resitem{John Philip Sousa Award - SAU Concert Band}
+  \resitem{Calculus I Award - SAU Mathematics Department}
+  \resitem{Hold all SAU swimming records}
+
+\end{ressection}
+
+
+\end{document}

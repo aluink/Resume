@@ -1,0 +1,6 @@
+#!/bin/bash
+
+latex resume.tex
+dvipdfm resume.dvi
+#scp resume.pdf dgbeards@router:public_html/resume.pdf
+rm *.aux *.log
