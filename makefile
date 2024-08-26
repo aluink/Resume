@@ -9,4 +9,4 @@ cover.pdf : cover.tex
 	dvipdfm cover.dvi
 
 clean:
-	rm -f *.dvi *.aux *.log *.pdf
+	rm -f *.dvi *.aux *.log
