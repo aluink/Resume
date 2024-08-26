@@ -1,123 +1,35 @@
-\documentclass[11pt,oneside]{article}
-\usepackage{geometry}
-\usepackage[T1]{fontenc}
 
-\pagestyle{empty}
-\geometry{letterpaper,tmargin=1in,bmargin=.8in,lmargin=.75in,rmargin=.75in,headheight=0in,headsep=0in,footskip=.3in}
-
-\setlength{\parindent}{0in}
-\setlength{\parskip}{0in}
-\setlength{\itemsep}{0in}
-\setlength{\topsep}{0in}
-\setlength{\tabcolsep}{0in}
-
-% Name and contact information
-\newcommand{\name}{Eric Polino}
-\newcommand{\addr}{3448 Tunnel Hill Rd SW, Cleveland, TN 37311}
-\newcommand{\phone}{(423) 618-6204}
-\newcommand{\email}{aluink@gmail.com}
-\newcommand{\linkedin}{www.linkedin.com/in/eric-polino}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% New commands and environments
-
-% This defines how the name looks
-\newcommand{\bigname}[1]{
-	\begin{center}\fontfamily{phv}\selectfont\Huge\scshape#1\end{center}
-}
-
-% A ressection is a main section (<H1>Section</H1>)
-\newenvironment{ressection}[1]{
-	\vspace{4pt}
-	{\fontfamily{phv}\selectfont\Large#1}
-	\begin{itemize}
-	\vspace{3pt}
-}{
-	\end{itemize}
-}
-
-% A resitem is a simple list element in a ressection (first level)
-\newcommand{\resitem}[1]{
-	\vspace{-4pt}
-	\item \begin{flushleft} #1 \end{flushleft}
-}
-
-% A ressubitem is a simple list element in anything but a ressection (second level)
-\newcommand{\ressubitem}[1]{
-	\vspace{-1pt}
-	\item \begin{flushleft} #1 \end{flushleft}
-}
-
-% A resbigitem is a complex list element for stuff like jobs and education:
-%  Arg 1: Name of company or university
-%  Arg 2: Location
-%  Arg 3: Title and/or date range
-\newcommand{\resbigitem}[3]{
-	\vspace{-5pt}
-	\item
-	{\textbf{#1}---#2 \hfill \textit{#3}}
-}
-
-% This is a list that comes with a resbigitem
-\newenvironment{restitledposition}[3]{
-	\resbigitem{#1}{#2}{#3}
-	\vspace{-2pt}
-	\begin{itemize}
-}{
-	\end{itemize}
-}
-
-% A resbigitem is a complex list element for stuff like jobs and education:
-%  Arg 1: Name of company or university
-%  Arg 2: Location
-%  Arg 3: Title and/or date range
-\newcommand{\resbigitemb}[2]{
-	\vspace{-5pt}
-	\item{\textbf{#1} \hfill \textit{#2}}
-}
-
-% This is a list that comes with a resbigitem
-\newenvironment{resdateditem}[2]{
-	\resbigitemb{#1}{#2}
-	\vspace{-2pt}
-	\begin{itemize}
-}{
-	\end{itemize}
-}
-
-% This is a simple sublist
-\newenvironment{reslist}[1]{
-	\resitem{\textbf{#1}}
-	\vspace{-5pt}
-	\begin{itemize}
-}{
-	\end{itemize}
-}
+\input{command.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Now for the actual document:
 
 \begin{document}
 
-\fontfamily{ppl} \selectfont
-
-% Name with horizontal rule
-\bigname{\name}
-
-\vspace{-8pt} \rule{\textwidth}{1pt}
-
-\vspace{-1pt} {\small\itshape \hfill \phone; \email; \linkedin \hfill}
-
-\vspace{8 pt}
+\input{header.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%% 
 \begin{ressection}{Employment}
-	\begin{restitledposition}{Verikai (Remote)}{Lead Backend Engineer}{November 2021--March 2022}
-		\ressubitem{\textbf{Machine Learning Model Development:} Built the next iteration of the ML workflow responsible for processing census files using NodeJS and Typescript.}
-		\ressubitem{\textbf{AWS Cloud Solutioning} Worked to create AWS solutions to better position the stack for CI/CD using ECS Fargate.}
+	\begin{restitledposition}{Thirty Madison}{Senior Software Engineer II}{April 2022--August 2024}
+		\ressubitem{\textbf{Job Runner} Designed, implemented, and maintained an in-house asynchronous job running
+		solution. Using RabbitMQ, NestJS, and NodeJS/TypeScript, created a new standardized solution for running async
+		tasks at scale across a suite of microservices.}
+		\ressubitem{\textbf{Kafka Topic Isolation} Isolated Kafka topics within staging environments
+		leading to improved stability across dozens of staging environments leading to increased developer efficiency.}
+		\ressubitem{\textbf{Health Metric Standardization} Combining an internal NPM package, Terminus, and Kubernetes
+		probes developed a reliable set of metrics to monitor service health.}
+		\ressubitem{\textbf{Core Services} Supported a microservices architecture with tools and libraries including:
+		RabbitMQ, Kafka, NestJS, GraphQL, Prisma, Postgres, RoR, and several AWS services.}
+		\ressubitem{\textbf{Architecture Review Group} Led an architecture review group for upcoming major technical projects.
+		Participated in intake/scoping, led review discussion, and fascilitated feedback to engineers.}
 	\end{restitledposition}
-	\begin{restitledposition}{symplr (Chattanooga, TN)}{Senior Software Engineer}{December 2014--November 2021}
+	\begin{restitledposition}{Verikai}{Lead Backend Engineer}{November 2021--March 2022}
+		\ressubitem{\textbf{Machine Learning Model Development:} Built the next iteration of the ML workflow responsible
+		for processing census files using NodeJS and Typescript.}
+		\ressubitem{\textbf{AWS Cloud Solutioning} Worked to create AWS solutions to better position the stack for CI/CD
+		using ECS Fargate.}
+	\end{restitledposition}
+	\begin{restitledposition}{Vikus / HealthcareSource / symplr}{Lead Software Engineer}{December 2014--November 2021}
     \ressubitem{\textbf{Full Stack Web Development:} Developed an applicant tracking system utilizing C\# and EmberJS.
 		Backend tools included RabbitMQ, Redis, Elasicsearch, and AWS. AWS functions used: Lambda, S3,
 		CloudFormation, CloudFront, et al.}
@@ -126,11 +38,11 @@
 		limited to, payroll vendors, JobBoards (Indeed, ZipRecruiter, Facebook, Google, et al.), Plivo, GitHub,
 		Atlassian, and various WebHooks.}
 
-		\ressubitem{\textbf{Team lead:} Led the team in a Kanban methodology of issue prioritization. Was a voice
+		\ressubitem{\textbf{Team Lead:} Led the team in a Kanban methodology of issue prioritization. Was a voice
 		to the greater organization to help drive direction and roadmapping.}
   \end{restitledposition}
 
-  \begin{restitledposition}{devstudio42 LLC (Chattanooga, TN)}{Co-Founder / Programmer}{April 2014--December 2014}
+  \begin{restitledposition}{devstudio42 LLC}{Co-Founder / Programmer}{April 2014--December 2014}
     \ressubitem{\textbf{Rails Support:} Provided Ruby on Rails support on retainer for local startup.
     Performed feature development and bugfixes for calendar functions using FullCalendar, jQuery, and CSS.}
     \ressubitem{\textbf{iOS Development:} Taught myself iOS to create public speaking application.
@@ -138,7 +50,7 @@
     Core Data, layout, and navigation.}
   \end{restitledposition}
 
-	\begin{restitledposition}{BlueCross BlueShield of TN (Chattanooga, TN)}{Analyst Programmer}{July 2009--April 2014}
+	\begin{restitledposition}{BlueCross BlueShield of TN}{Analyst Programmer}{July 2009--April 2014}
     \ressubitem{\textbf{myBlueTN Mobile App:} Designed and built registration
     and user profile modules for a new hybrid mobile application. 
     Was the sole developer responsible for all future development, support, and 
@@ -152,37 +64,26 @@
 		\ressubitem{\textbf{Biometric Screening Interchange:} Designed and implemented
     data entry system along with a secure automated transfer mechanism to an
     offsite location using JSF and AES 256.}
-
-		\ressubitem{\textbf{Breast Screening Survey:} Designed and implemented a call center application
-		to survey members. Worked with reporting teams to report on the data.}
 	\end{restitledposition}
 
-	\begin{restitledposition}{Google Summer of Code (Remote)}{Intern}{May 2009--Aug. 2009, May 2007--Aug. 2007}
+	\begin{restitledposition}{Google Summer of Code}{Intern}{May 2009--Aug. 2009, May 2007--Aug. 2007}
 		\ressubitem{\textbf{GObjectification:} Worked on the \textit{Pidgin} open source project
 		aiding in the conversion of the core instant message library to utilize the 
 		GObject framework in C.}
-
-		\ressubitem{\textbf{Hiding and Conversion:} Hid all existing data structures from scope.
-		Converted existing structures to inherit from GObject, paradigm shifting the library's 
-		architecture from procedural to object-oriented.}
 	
 		\ressubitem{\textbf{Finch:} Developed enhancements to the open source console
 		based instant message client \textit{Finch} in the \textit{Pidgin} project.}
-
-		\ressubitem{\textbf{Added Features:} Implemented sound and communication logging to files in Finch}
-
-		\ressubitem{\textbf{Abstracts:} developer.pidgin.im/wiki/GSoC2009/HidingGobject
-		developer.pidgin.im/wiki/FinchFeat}
 	\end{restitledposition}
 \end{ressection}
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 \begin{ressection}{Tooling and Language Experience}
-	\resitem{C\#, Java, HTML, CSS, JavaScript, \LaTeX}
+	\resitem{C\#, Java, TypeScript, JavaScript, \LaTeX}
 	\resitem{Github, Bitbucket, Gitlab, JIRA}
-	\resitem{RabbitMQ, ElasicSearch, Redis, SQL Server}
-	\resitem{AWS: S3, Lambda, CloudFormation, CloudFront, ECS Fargate}
-	\resitem{Windows and Linux environments.}
+	\resitem{RabbitMQ, Kafka, ElasticSearch, Redis}
+	\resitem{Postgres, SQL Server}
+	\resitem{AWS: S3, Lambda, CloudFormation, MSK}
+	\resitem{Windows and Linux environments}
 \end{ressection}
 
 \begin{ressection}{Personal Projects}
@@ -193,7 +94,7 @@
   \end{resdateditem}
 
   \begin{resdateditem}{Reversi}{Fall 2008}
-    \ressubitem{Wrote a Reversi engine in C for a tournament in college.}
+    \ressubitem{Wrote a Reversi engine in C for a tournament.}
 		\ressubitem{Created a genetic algorithm to improve the evaluation function.}
 		\ressubitem{Won the tournament with a perfect record and the only engine to have a positive +/- score.}
   \end{resdateditem}

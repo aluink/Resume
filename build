@@ -1,5 +1,0 @@
-#!/bin/bash
-
-latex resume.tex
-dvipdfm resume.dvi
-rm *.aux *.log
