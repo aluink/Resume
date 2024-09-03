@@ -43,6 +43,11 @@
 	\item \begin{flushleft} #1 \end{flushleft}
 }
 
+\newcommand{\skillsitem}[2]{
+	\vspace{-4pt}
+	\item \begin{flushleft} \textbf{#1}: #2 \end{flushleft}
+}
+
 % A ressubitem is a simple list element in anything but a ressection (second level)
 \newcommand{\ressubitem}[1]{
 	\vspace{-1pt}
@@ -66,6 +71,11 @@
 	\begin{itemize}
 }{
 	\end{itemize}
+}
+
+% This is a list that comes with a resbigitem
+\newcommand{\restitledpositionmin}[3]{
+	\resbigitem{#1}{#2}{#3}
 }
 
 % A resbigitem is a complex list element for stuff like jobs and education:
